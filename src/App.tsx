@@ -5,12 +5,15 @@ import Blog from './pages/Blog';
 // import  { useState } from 'react';
 import Signup from './pages/Signup';
 import Blogs from './pages/Blogs';
-import Update from './components/Update';
+// import Update from './components/Update';
+import { useState } from 'react';
+
 // import Auth from './pages/Auth';
 const App = () => {
   // const [state,setState] = useState('signup');
+    const [isOpen, setIsOpen] = useState(false);
   return (
-    <>
+    <> 
   
       {/* <Update/> */}
       <Routes>
@@ -19,6 +22,8 @@ const App = () => {
 
         <Route path="/blog/:id" element={<Blog />} />
         <Route path="/blogs" element={<Blogs />} />
+          
+         {/* <Route path="/update/:id" element={<Update onClose={() => setIsOpen(false)}  />} /> */}
       </Routes>
     </>
   )

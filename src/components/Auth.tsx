@@ -10,26 +10,29 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
     email: "",
     password: "",
   });
- const navigate =useNavigate()
-async function sendRequest(){
-  try{
-    const res =await axios.post(`${backend_url}/api/v1/user/${type==="signup" ? "signup" : "signin"}`,{...postInputs});
-    const {token} = res.data;
-    localStorage.setItem("auth-token",token);
-    console.log(token)
-     navigate('/blog')
-  }catch(e){
-    console.log(e);
+  const navigate = useNavigate()
+  async function sendRequest() {
+    try {
+      // const url  = `${backend_url}/api/v1/user/${type==="signup" ? "signup" : "signin"}`
+      const url = 'http://localhost:3000/api/v1/user/signin'
+      console.log(url);
+      const res = await axios.post(url, { ...postInputs }, { withCredentials: true });
+      const { token } = res.data;
+      localStorage.setItem("auth-token", token);
+      // console.log(token)
+      navigate('/blogs');
+    } catch (e) {
+      console.log(e);
+    }
   }
-}
-  
+
   // onchange
   function onChangeHandler(e: any) {
     const { name, value } = e.target;
     setPostInputs((prev: any) => ({ ...prev, [name]: value }));
   }
   // onSubmit
- async function handleSubmit(e: any) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
     console.log(postInputs);
     await sendRequest();
