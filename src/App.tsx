@@ -7,6 +7,7 @@ import Signup from './pages/Signup';
 import Blogs from './pages/Blogs';
 // import Update from './components/Update';
 import { useState } from 'react';
+import Publish from './pages/Publish';
 
 // import Auth from './pages/Auth';
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
 
+         <Route path="/publish" element={<Publish />} />
         <Route path="/blog/:id" element={<Blog />} />
         <Route path="/blogs" element={<Blogs />} />
           

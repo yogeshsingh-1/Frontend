@@ -4,6 +4,7 @@ import { useState } from "react";
 import { backend_url } from "../config";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const Auth = ({ type }: { type: "signup" | "signin" }) => {
   const [postInputs, setPostInputs] = useState({
     username: "",
@@ -11,15 +12,17 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
     password: "",
   });
   const navigate = useNavigate()
+  const location = useLocation() ;
+  const message = location.state ?? "";
+
+  console.log(message);
   async function sendRequest() {
     try {
-      // const url  = `${backend_url}/api/v1/user/${type==="signup" ? "signup" : "signin"}`
-      const url = 'http://localhost:3000/api/v1/user/signin'
-      console.log(url);
-      const res = await axios.post(url, { ...postInputs }, { withCredentials: true });
+      const url = `${backend_url}/api/v1/user/${type === "signup" ? "signup" : "signin"}`
+
+      const res = await axios.post(url, { ...postInputs });
       const { token } = res.data;
-      localStorage.setItem("auth-token", token);
-      // console.log(token)
+      localStorage.setItem("token", token);
       navigate('/blogs');
     } catch (e) {
       console.log(e);
@@ -44,6 +47,7 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
   }
   return (
     <div className=" h-screen flex justify-center items-center">
+
       <div className="w-80">
         <h3 className="text-2xl font-bold text-center">
           {type === "signup" ? "Create an account" : "Sign IN"}
@@ -59,6 +63,7 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
             {type === "signup" ? "Sign IN" : "Sign UP"}
           </Link>
         </p>
+        <p> {message.message && <div className="text-red-500 text-sm text-center my-2 ">{message.message}!</div>}</p>
 
         <form action="" onSubmit={handleSubmit}>
           <div className="my-2 ">

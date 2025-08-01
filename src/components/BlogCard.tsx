@@ -9,8 +9,6 @@ interface BlogCardProps {
   title: string;
   content: string;
   publishedDate: string;
-
-  // author  : { username: string } 
 }
 const BlogCard = (props: BlogCardProps) => {
   const { authorName, title, publishedDate, content, id } = props;
@@ -46,7 +44,7 @@ const BlogCard = (props: BlogCardProps) => {
         )}
       </div>
 
-      <div className="font-semibold  text-lg">{title}</div>
+    <Link to={`/blog/${id}`}> <div className="font-semibold  text-lg"><span className=" hover:border-b border-black">{title}</span></div></Link>
       <div className="font-normal text-gray-500  text-sm">{content.slice(0, 100) + "..."}</div>
       <div className=" text-gray-400 text-xs">{Math.ceil(content.length / 100)} minutes(s) read</div>
 
@@ -59,6 +57,7 @@ const BlogCard = (props: BlogCardProps) => {
 export function Avatar({ name, size = 4 }: { name: string, size?: number }) {
   const sizeClass = {
     4: 'h-4 w-4',
+    5: 'h-5 w-5',
     6: 'h-6 w-6',
     8: 'h-8 w-8',
     10: 'h-10 w-10',

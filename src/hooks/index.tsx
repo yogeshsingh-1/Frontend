@@ -15,20 +15,18 @@ interface Blog {
 
 }
 
+
 export const useBlogs = () => {
     const [loading, setLoading] = useState(true);
     const [blogs, setBlogs] = useState<Blog[]>([]);
+    console.log(backend_url);
     useEffect(() => {
-        axios.get(`${backend_url}/api/v1/blog/bulk`,
-             {
-                withCredentials: true   
+        axios.get(`${backend_url}/api/v1/blog/bulk`, {
+            headers: {
+                Authorization: `${localStorage.getItem("token")}`
             }
-        //      {
-        //     headers: {
-        //         Authorization: localStorage.getItem("token")
-        //     }
-        // }
-    ).then(res => {
+        }  
+        ).then(res => {
             setBlogs(res.data.blog);
             console.log(res.data);
         }).catch(e => console.log(e))
@@ -46,18 +44,14 @@ export const useBlog = ({ id }: { id: string }) => {
     const [loading, setLoading] = useState(true);
     const [blog, setBlog] = useState<Blog>();
     useEffect(() => {
-        axios.get(`${backend_url}/api/v1/blog/${id}`,
-            {
-                withCredentials: true   
+        axios.get(`${backend_url}/api/v1/blog/${id}`, {
+            headers: {
+                Authorization: `${localStorage.getItem("token")}`
             }
-            //      {
-            //     headers: { 
-            //         Authorization: localStorage.getItem("token")
-            //     }
-            // }
+        }
         ).then(res => {
             setBlog(res.data.blog);
-            console.log(res.data);
+            console.log(res.data.blog);
         }).catch(e => console.log(e))
             .finally(() => {
                 setLoading(false);
