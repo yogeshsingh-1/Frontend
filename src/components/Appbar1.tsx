@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const Appbar1 = () => {
   return (
     <div className=" z-50 shadow  sticky top-0 border-b border-black  ">
-      <div className="flex justify-between px-10 py-3 xl:mx-52">
+      <div className="flex justify-between px-10 py-3 xl:mx-48">
         <Link to="/" className="cursor-pointer">
           <div className="text-[22px] font-extrabold font-serif">Medium</div>
         </Link>
         <div className="flex items-center gap-6 ">
-          <div className="cursor-pointer text-[#242424] text-[12px] hidden md:block ">
+          <div className="cursor-pointer text-[#242424] text-[12px]  hidden md:block ">
             Our story
           </div>
           <div className="cursor-pointer text-[#242424] text-[12px] hidden md:block">
@@ -26,7 +26,7 @@ const Appbar1 = () => {
           <div>
             <button
               type="button"
-              className="cursor-pointer text-white bg-[#191919]  rounded-full px-[16px] py-[7px] text-center font-[14px] text-xs "
+              className="cursor-pointer text-white bg-[#191919]  rounded-full px-[16px] py-[7px] text-center font-[12px] text-[10.5px] "
             >
               Get Started
             </button>
