@@ -46,7 +46,7 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
     });
   }
   return (
-    <div className=" h-screen flex justify-center items-center">
+    <div className="h-full flex justify-center items-center">
 
       <div className="w-80">
         <h3 className="text-2xl font-bold text-center">

@@ -1,6 +1,6 @@
 const Quote = () => {
   return (
-    <div className="bg-gray-100 h-screen  font-poppins">
+    <div className=" bg-gray-100 h-full font-poppins">
       <div className="h-full flex items-center justify-center ">
         <div className="w-96">
           <h3 className="text-xl font-bold">
@@ -16,5 +16,5 @@ const Quote = () => {
     </div>
   );
 };
-
+ 
 export default Quote;

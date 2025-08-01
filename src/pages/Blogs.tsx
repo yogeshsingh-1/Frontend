@@ -7,11 +7,10 @@ const Blogs = () => {
   const { loading, blogs } = useBlogs();
 
   // loading skelton
+  console.log(blogs);
   if (loading) {
     return <Skelton/>
-    
-
-  }
+      }
   return (
     <div>
       <Appbar />

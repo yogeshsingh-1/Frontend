@@ -6,17 +6,19 @@ import Blog from './pages/Blog';
 import Signup from './pages/Signup';
 import Blogs from './pages/Blogs';
 // import Update from './components/Update';
-import { useState } from 'react';
+// import { useState } from 'react';
 import Publish from './pages/Publish';
+import Home from './pages/Home';
+// import home from './components/home.webp'/
 
 // import Auth from './pages/Auth';
 const App = () => {
   // const [state,setState] = useState('signup');
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
   return (
     <> 
-  
-      {/* <Update/> */}
+      <Home/>
+      
       <Routes>
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
