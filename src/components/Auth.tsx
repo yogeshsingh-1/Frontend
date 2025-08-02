@@ -11,19 +11,21 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
     email: "",
     password: "",
   });
-  const navigate = useNavigate()
-  const location = useLocation() ;
+  const navigate = useNavigate();
+  const location = useLocation();
   const message = location.state ?? "";
 
   console.log(message);
   async function sendRequest() {
     try {
-      const url = `${backend_url}/api/v1/user/${type === "signup" ? "signup" : "signin"}`
+      const url = `${backend_url}/api/v1/user/${
+        type === "signup" ? "signup" : "signin"
+      }`;
 
       const res = await axios.post(url, { ...postInputs });
       const { token } = res.data;
       localStorage.setItem("token", token);
-      navigate('/blogs');
+      navigate("/user/blogs");
     } catch (e) {
       console.log(e);
     }
@@ -47,7 +49,6 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
   }
   return (
     <div className="h-full flex justify-center items-center">
-
       <div className="w-80">
         <h3 className="text-2xl font-bold text-center">
           {type === "signup" ? "Create an account" : "Sign IN"}
@@ -63,7 +64,14 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
             {type === "signup" ? "Sign IN" : "Sign UP"}
           </Link>
         </p>
-        <p> {message.message && <div className="text-red-500 text-sm text-center my-2 ">{message.message}!</div>}</p>
+        <p>
+          {" "}
+          {message.message && (
+            <div className="text-red-500 text-sm text-center my-2 ">
+              {message.message}!
+            </div>
+          )}
+        </p>
 
         <form action="" onSubmit={handleSubmit}>
           <div className="my-2 ">

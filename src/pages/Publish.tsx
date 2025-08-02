@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,  } from "react";
 import Appbar from "../components/Appbar";
 import axios from "axios";
 import { backend_url } from "../config";
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Publish = () => {
     const [data, setData] = useState({ title: "", content: "" });
     const navigate = useNavigate();
-    const onChangeHandler = (e: any) => {
+    const onChangeHandler = (e:any) => {
         const { name, value } = e.target;
         if (name === "content") {
             const regex = /\n/g;
@@ -29,7 +29,7 @@ const Publish = () => {
             if (res.data.success) {
                 const { id } = res.data;
                 console.log(res.data);
-                navigate(`/blog/${id}`);
+                navigate(`/user/blog/${id}`);
             } else {
 
                 navigate('/signin', { state: { ...e.response.data } });

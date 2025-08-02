@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { isTokenNotFound } from "./IsTokenNotFound";
 // import { Avatar } from "./BlogCard"
 
 const Appbar1 = () => {
@@ -18,19 +19,23 @@ const Appbar1 = () => {
           <div className="cursor-pointer text-[#242424] text-[12px] hidden md:block">
             Write
           </div>
-          <Link to="/signin">
-            <div className="cursor-pointer text-[#242424] text-[12px] hidden sm:block md:block">
-              Sign in
+          {!isTokenNotFound() && (
+            <Link to="/signin">
+              <div className="cursor-pointer text-[#242424] text-[12px] hidden sm:block md:block">
+                Sign in
+              </div>
+            </Link>
+          )}
+          <Link to={isTokenNotFound() ? `/user/blogs` : `/signin`}>
+            <div>
+              <button
+                type="button"
+                className="cursor-pointer text-white bg-[#191919]  rounded-full px-[16px] py-[7px] text-center font-[12px] text-[10.5px] "
+              >
+                Get Started
+              </button>
             </div>
           </Link>
-          <div>
-            <button
-              type="button"
-              className="cursor-pointer text-white bg-[#191919]  rounded-full px-[16px] py-[7px] text-center font-[12px] text-[10.5px] "
-            >
-              Get Started
-            </button>
-          </div>
         </div>
       </div>
     </div>

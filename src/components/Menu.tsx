@@ -19,7 +19,7 @@ const Menu = () => {
               <p>A place to read,write and deepend your understanding</p>
             </div>
             <div className='mt-3 md:mt-4'>
-              <Link to="/blogs">
+              <Link to="/user/blogs">
               <button className='bg-green-700 lg:bg-black text-white px-10 py-2 md:px-[34px] lg:py-[10px] rounded-3xl text-xl object-cover'>Start reading</button>
               </Link>
             </div>

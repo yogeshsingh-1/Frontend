@@ -1,38 +1,64 @@
 // import React from 'react'
-import { Routes, Route } from 'react-router-dom';
-import Signin from './pages/Signin';
-import Blog from './pages/Blog';
-// import  { useState } from 'react';
-import Signup from './pages/Signup';
-import Blogs from './pages/Blogs';
-// import Update from './components/Update';
-// import { useState } from 'react';
-import Publish from './pages/Publish';
-import Home from './pages/Home';
-// import Appbar1 from './components/Appbar1';
-// import home from './components/home.webp'/
+import { Routes, Route} from "react-router-dom";
+import Signin from "./pages/Signin";
+import Blog from "./pages/Blog";
+import Signup from "./pages/Signup";
+import Blogs from "./pages/Blogs";
+import Publish from "./pages/Publish";
+import ProtectedRoute from "./pages/ProtectedRoutes";
+import ProtectedSigninRoute from "./pages/ProtectSigninRoutes";
+import Home from "./pages/Home";
 
-// import Auth from './pages/Auth';
 const App = () => {
-  // const [state,setState] = useState('signup');
-    // const [isOpen, setIsOpen] = useState(false);
   return (
-    <> 
-      {/* <Home/> */}
-    
+    <>
       <Routes>
-         <Route path='/' element={<Home />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/signin' element={<Signin />} />
+        <Route path="/" element={<Home/>}/>
+        <Route
+          path="/signup"
+          element={
+            <ProtectedSigninRoute>
+              <Signup />
+            </ProtectedSigninRoute>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <ProtectedSigninRoute>
+              <Signin />
+            </ProtectedSigninRoute>
+          }
+        />
 
-         <Route path="/publish" element={<Publish />} />
-        <Route path="/blog/:id" element={<Blog />} />
-        <Route path="/blogs" element={<Blogs />} />
-          
-         {/* <Route path="/update/:id" element={<Update onClose={() => setIsOpen(false)}  />} /> */}
+        <Route
+          path="/user/publish"
+          element={
+            <ProtectedRoute>
+              <Publish />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/user/blog/:id"
+          element={
+            <ProtectedRoute>
+              <Blog />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/user/blogs"
+          element={
+            <ProtectedRoute>
+              <Blogs />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
-  )
-}
+  );
+};
 
 export default App;
