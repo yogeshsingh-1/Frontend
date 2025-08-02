@@ -5,8 +5,7 @@ import Menu from "../components/Menu";
 const Home = () => {
   return (
     <>
-    {/*  */}
-      <div className=" w-full h-screen bg-[#F7F4ED]">
+      <div className=" ">
         <Appbar1 />
         <Menu />
         <Footer />

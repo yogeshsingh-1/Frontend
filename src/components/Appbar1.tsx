@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Appbar1 = () => {
   return (
-    <div className=" z-50 shadow  sticky top-0 border-b border-black  ">
+    <div className="bg-[#F7F4ED] z-50 shadow  sticky top-0 border-b border-black  ">
       <div className="flex justify-between px-10 py-3 xl:mx-48">
         <Link to="/" className="cursor-pointer">
           <div className="text-[22px] font-extrabold font-serif">Medium</div>

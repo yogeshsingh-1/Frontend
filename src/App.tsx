@@ -9,6 +9,7 @@ import Blogs from './pages/Blogs';
 // import { useState } from 'react';
 import Publish from './pages/Publish';
 import Home from './pages/Home';
+// import Appbar1 from './components/Appbar1';
 // import home from './components/home.webp'/
 
 // import Auth from './pages/Auth';
@@ -17,9 +18,10 @@ const App = () => {
     // const [isOpen, setIsOpen] = useState(false);
   return (
     <> 
-      <Home/>
-      
+      {/* <Home/> */}
+    
       <Routes>
+         <Route path='/' element={<Home />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
 
