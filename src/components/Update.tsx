@@ -17,6 +17,7 @@ const Update = ({ id, onClose }: UpdateProps) => {
         `${backend_url}/api/v1/blog/${id}`,
         { ...form },
         {
+          withCredentials: true,
           headers: {
             Authorization: localStorage.getItem("token"),
           },

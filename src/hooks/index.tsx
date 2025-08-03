@@ -22,6 +22,7 @@ export const useBlogs = () => {
     console.log(backend_url);
     useEffect(() => {
         axios.get(`${backend_url}/api/v1/blog/bulk`, {
+            withCredentials : true,
             headers: {
                 Authorization: `${localStorage.getItem("token")}`
             }
@@ -45,6 +46,7 @@ export const useBlog = ({ id }: { id: string }) => {
     const [blog, setBlog] = useState<Blog>();
     useEffect(() => {
         axios.get(`${backend_url}/api/v1/blog/${id}`, {
+            withCredentials : true,
             headers: {
                 Authorization: `${localStorage.getItem("token")}`
             }

@@ -22,7 +22,11 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
         type === "signup" ? "signup" : "signin"
       }`;
 
-      const res = await axios.post(url, { ...postInputs });
+      const res = await axios.post(
+        url,
+        { ...postInputs },
+        { withCredentials: true }
+      );
       const { token } = res.data;
       localStorage.setItem("token", token);
       navigate("/user/blogs");
