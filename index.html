@@ -1,41 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-
+    <title>Medium</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="root"></div>
-    <script>const $targetEl = document.getElementById('targetEl');
-    
+    <script>
+      const $targetEl = document.getElementById("targetEl");
 
-// optionally set a trigger element (eg. a button, hamburger icon)
-const $triggerEl = document.getElementById('triggerEl');
+      // optionally set a trigger element (eg. a button, hamburger icon)
+      const $triggerEl = document.getElementById("triggerEl");
 
-// optional options with default values and callback functions
-const options = {
-    onCollapse: () => {
-        console.log('element has been collapsed');
-    },
-    onExpand: () => {
-        console.log('element has been expanded');
-    },
-    onToggle: () => {
-        console.log('element has been toggled');
-    },
-};
+      // optional options with default values and callback functions
+      const options = {
+        onCollapse: () => {
+          console.log("element has been collapsed");
+        },
+        onExpand: () => {
+          console.log("element has been expanded");
+        },
+        onToggle: () => {
+          console.log("element has been toggled");
+        },
+      };
 
-const instanceOptions = {
-  id: 'targetEl',
-  override: true
-};</script>
+      const instanceOptions = {
+        id: "targetEl",
+        override: true,
+      };
+    </script>
     <script type="module" src="/src/main.tsx"></script>
     <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
-
   </body>
 </html>
