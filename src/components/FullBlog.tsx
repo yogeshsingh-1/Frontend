@@ -25,11 +25,13 @@ function FullBlog({ blog }: { blog: BlogCardProps}) {
       <Appbar />
       <div className=" mx-28 mt-8 grid grid-cols-12 gap-12 px-4 py-2">
         <div className="col-span-8 flex flex-col gap-[12px]">
-          <div className="text-3xl font-extrabold font-sans text-opacity-95 w-[80%]">Taxing Laughter: The Joke Tax Chronicles</div>
+          <div className="text-3xl font-extrabold font-sans text-opacity-95 w-[80%]">{title}</div>
           <div className="text-sm text-gray-400 "><span className="hover:border-b  hover:border-b-gray-700 hover:z-50 hover:py-1 hover:text-gray-700">Posted on August 24, 2023</span></div>
-          <div className="font-poppins text-sm font-light text-opacity-90">{text.slice(0,250)}<br></br>
+          <div className="font-poppins text-sm font-light text-opacity-90">
+            {/* {  text.slice(0,250)}<br></br>
           {text.slice(250,450)}<br></br>
-          {text.slice(451)}<br></br>
+          {text.slice(451)}<br></br> */}
+          {content}
          </div>
         </div>
         <div className="col-span-4 flex flex-col gap-2">
