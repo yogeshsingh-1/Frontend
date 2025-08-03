@@ -32,14 +32,11 @@ const Publish = () => {
       .then((res) => {
         if (res.data.success) {
           const { id } = res.data;
-          console.log(res.data);
           navigate(`/user/blog/${id}`);
-        } else {
-          navigate("/signin", { state: { ...e.response.data } });
-        }
+        } 
       })
       .catch((e) => {
-        // console.log(e);
+        
         navigate("/signin", { state: { ...e.response.data } });
       });
   };
