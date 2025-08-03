@@ -29,7 +29,7 @@ function FullBlog({ blog }: { blog: BlogCardProps }) {
               Posted on August 24, 2023
             </span>
           </div>
-          <div className="font-poppins text-sm font-light text-opacity-90">
+          <div className="font-poppins text-sm font-light text-opacity-90 whitespace-pre-wrap">
             {content}
           </div>
         </div>

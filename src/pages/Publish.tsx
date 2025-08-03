@@ -7,16 +7,16 @@ import { useNavigate } from "react-router-dom";
 const Publish = () => {
   const [data, setData] = useState({ title: "", content: "" });
   const navigate = useNavigate();
-  const onChangeHandler = (e: any) => {
+  const onChangeHandler = (e: React.FormEvent) => {
     const { name, value } = e.target;
-    if (name === "content") {
-      const regex = /\n/g;
-      setData((prev) => ({ ...prev, [name]: value.replace(regex, "") }));
-    } else {
+    // if (name === "content") {
+    //   const regex = /\n/g;
+    //   setData((prev) => ({ ...prev, [name]: value.replace(regex, ) }));
+    // } else {
       setData((prev) => ({ ...prev, [name]: value }));
-    }
+    // }
   };
-  const onSubmit = async (e: any) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     axios
       .post(
