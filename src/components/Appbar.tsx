@@ -11,17 +11,29 @@ const Appbar = () => {
       <Link to="/" className="cursor-pointer">
         <div className="text-[22px] font-extrabold font-serif">Medium</div>
       </Link>
-      <div className="flex items-center ">
-        {isUserRoute && <Link to="/user/publish">
-          <button
-            type="button"
-            className="mr-8 text-white bg-green-700 hover:bg-green-800  rounded-full  px-4 py-1 text-center  text-sm font-thin"
-          >
-            Publish
-          </button>
-        </Link>}
 
-        {/* <Avatar name="yogesh" size={8} /> */}
+      <div className="flex items-center gap-4 ">
+        {isUserRoute && (
+          <Link to="/user/publish">
+            <button
+              type="button"
+              className=" text-white bg-green-700 hover:bg-green-800  rounded-full  px-4 py-1 text-center  text-sm font-thin"
+            >
+              Publish
+            </button>
+          </Link>
+        )}
+
+        {isUserRoute && (
+          <Link to="/user/blogs">
+            <button
+              type="button"
+              className="text-gray-700 hover:text-black border border-gray-300 hover:border-black rounded-full px-4 py-1 text-sm font-medium transition-colors duration-200"
+            >
+              Explore Blogs
+            </button>
+          </Link>
+        )}
         {isUserRoute && <Profile />}
       </div>
     </div>
