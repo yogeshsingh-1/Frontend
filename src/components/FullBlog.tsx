@@ -44,8 +44,8 @@ function FullBlog({ blog }: { blog: BlogCardProps }) {
           </div>
 
           <div className="text-gray-500 text-sm italic">
-            Written by
-            <span className="font-medium text-gray-700">{author.username}</span>
+            Written by 
+            <span className="font-medium text-gray-700"> {author.username}</span>
           </div>
         </div>
       </div>
