@@ -9,12 +9,7 @@ const Publish = () => {
   const navigate = useNavigate();
   const onChangeHandler = (e: React.FormEvent) => {
     const { name, value } = e.target;
-    // if (name === "content") {
-    //   const regex = /\n/g;
-    //   setData((prev) => ({ ...prev, [name]: value.replace(regex, ) }));
-    // } else {
-      setData((prev) => ({ ...prev, [name]: value }));
-    // }
+    setData((prev) => ({ ...prev, [name]: value }));
   };
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,11 +27,10 @@ const Publish = () => {
       .then((res) => {
         if (res.data.success) {
           const { id } = res.data;
-          navigate(`/user/blog/${id}`);
-        } 
+          navigate(`/user/blog/${id}`, { replace: true });
+        }
       })
       .catch((e) => {
-        
         navigate("/signin", { state: { ...e.response.data } });
       });
   };
